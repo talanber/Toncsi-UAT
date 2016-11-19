@@ -1,14 +1,14 @@
 # Wit-Facebook
-[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.org/hunkim/Wit-Facebook)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/hunkim/Wit-Facebook)
+[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.orgGazsi59/toncsi-witk)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/Gazsi59/toncsi-wit)
 
 Wit.ai 봇 엔진과 Facebook 메신저 연동 한번에 해보기
 
 ## 기본 설치
 먼저 이 프로젝트를 포크 한다음 클론 합니다. npm/node가 설치 되어 있다고 가정합니다. "nam install” 을 실행하여 필요한 node_module을 다운 받습니다.
 ```bash
-git clone https://github.com/{forked}/Wit-Facebook.git
-cd Wit-Facebook
+git clone https://github.com/Gazsi59/toncsi-wit.git
+cd toncsi-wit
 npm install
  ```
 
@@ -76,7 +76,7 @@ heroku.com는 본인의 프로그램을 5개 까지 무료로 deploy 해주므�
 * 'heroku create' 명령을 실행한 다음 heroku로 push하여 deploy 합니다.
 
 ```bash
-cd Wit-Facebook
+cd toncsi-wit
 heroku create
 git push heroku master
 ```
