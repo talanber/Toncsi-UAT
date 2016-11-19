@@ -1,7 +1,7 @@
 {
   "name": "Wit-Facebook",
   "version": "1.0.0",
-  "description": "Simple Wit-Facebook",
+  "description": "Simple toncsi-wit",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hunkim/Wit-Facebook.git"
+    "url": "https://github.com/Gazsi59/toncsi-wit.git"
   },
   "bugs": {
-    "url": "https://github.com/hunkim/Wit-Facebook/issues"
+    "url": "https://github.com/Gazsi59/toncsi-wit/issues"
   },
-  "homepage": "https://github.com/hunkim/Wit-Facebook#readme"
+  "homepage": "https://github.com/Gazsi59/toncsi-witk#readme"
 }
