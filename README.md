@@ -1,5 +1,5 @@
-# Wit-Facebook
-[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.org/Gazsi59/toncsi-witk)
+# toncsi-wit
+[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.org/Gazsi59/toncsi-wit)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)(https://www.codacy.com/app/Gazsi59/toncsi-wit)
 
 Wit.ai and Facebook Messenger Integration Example
@@ -7,8 +7,8 @@ Wit.ai and Facebook Messenger Integration Example
 Fork this repository and clone.
 
 ```bash
-git clone https://github.com/{forked}/Wit-Facebook.git
-cd Wit-Facebook
+git clone https://github.com/Gazsi59/toncsi-wit.git
+cd toncsi-wit
 npm install
  ```
 
@@ -73,7 +73,7 @@ First you need to make a Facebook Page at https://www.facebook.com/pages/create/
 * Run heroku create and push to heroku:
 
 ```bash
-cd Wit-Facebook
+cd toncsi-wit
 heroku create
 git push heroku master
 ```
