@@ -1,6 +1,6 @@
 {
-  "name": "Wit-Facebook-bot",
-  "description": "Wit-Facebook Messenger Bot Demo.",
+  "name": "toncsi-wit",
+  "description": "toncsi-wit Messenger Bot Demo.",
   "repository": "https://github.com/Gazsi59/toncsi-wit",
   "logo": "https://avatars2.githubusercontent.com/u/4723433",
   "keywords": ["node", "express", "github", "wit", "bot", "fcaebook"],
