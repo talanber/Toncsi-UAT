@@ -2,7 +2,7 @@ jest.
 dontMock('../facebook.js').
 dontMock('request');
 
-process.env.WIT_TOKEN = 'wit_token';
+process.env.WIT_TOKEN = 'VFD7X3EUFNWFFP7XAMRB2YJLQTHCDAUI';
 const FB = require('../facebook.js');
 
 describe('FB tests', () => {
