@@ -1,5 +1,5 @@
-# Wit-Facebook
-[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.orgGazsi59/toncsi-witk)
+# toncsi-wit
+[![Build Status](https://travis-ci.org/Gazsi59/toncsi-wit.svg?branch=master)](https://travis-ci.orgGazsi59/toncsi-witk)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/Gazsi59/toncsi-wit)
 
 Wit.ai 봇 엔진과 Facebook 메신저 연동 한번에 해보기
