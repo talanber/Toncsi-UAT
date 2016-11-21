@@ -1,7 +1,7 @@
 jest
   .dontMock('../bot.js');
 
-process.env.WIT_TOKEN = 'VFD7X3EUFNWFFP7XAMRB2YJLQTHCDAUI';
+process.env.WIT_TOKEN = 'OSPXNZRK36HNE7UV3QL2PD6IKFSBFG6I';
 const bot = require('../bot.js');
 
 describe('Bot tests', () => {
