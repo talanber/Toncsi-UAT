@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Details from './Details';
 import ForecastItem from './ForecastItem';
 import getWeather from '../utils/api';
+import getForecast from '../utils/api';
 
 const styles = {
   container: {
