@@ -90,7 +90,7 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     //context.forecast = getForecast(context.loc)
-    context.forecast = getWeather(context.loc)
+    context.forecast = (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`)
     //context.forecast = 'Borzalmas idő van, DE!! Gödöllőn trópusi!';
     cb(context.forecast);
   },
