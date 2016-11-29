@@ -1,6 +1,6 @@
 'use strict';
 //import axios from 'axios';
-import { processCurrentWeather, processForecastWeather } from './helpers';
+//import { processCurrentWeather, processForecastWeather } from './helpers';
 
 const APP_ID = '1bd97c5c275dd5c9d80fba8c53c25549';
 
