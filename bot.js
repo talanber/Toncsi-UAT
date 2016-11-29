@@ -99,8 +99,8 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     //context.forecast = getForecast(context.loc)
-    //context.current = getWeather(context.loc)
-    context.forecast = 'Borzalmas idő van, DE!! Gödöllőn trópusi!';
+    context.current = getWeather(context.loc)
+    //context.forecast = 'Borzalmas idő van, DE!! Gödöllőn trópusi!';
     cb(context);
   },
 };
