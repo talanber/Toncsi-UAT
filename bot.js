@@ -1,6 +1,6 @@
 'use strict';
 {
-  "name": "toncsi-wit",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "bot.js",
