@@ -5,11 +5,11 @@
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 
 function getCurrentWeather(location) {
-  return var current =(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  return  current =(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
 }
 
 function getForecast(location) {
-  return var forecast =(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=metric&cnt=5&APPID=${APP_ID}`);
+  return  forecast =(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=metric&cnt=5&APPID=${APP_ID}`);
 }
 
 //export default function getWeather(location) {
