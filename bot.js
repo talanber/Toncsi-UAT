@@ -2,7 +2,7 @@
 //import axios from 'axios';
 //import { processCurrentWeather, processForecastWeather } from './helpers';
 
-const APP_ID = '1bd97c5c275dd5c9d80fba8c53c25549';
+const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 
 function getCurrentWeather(location) {
   return axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
