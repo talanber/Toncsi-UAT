@@ -1,5 +1,34 @@
 'use strict';
-//import axios from 'axios';
+{
+  "name": "toncsi-wit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "production": "webpack -p",
+    "dev": "webpack-dev-server",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.11.0",
+    "express": "^4.13.4",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0",
+    "react-svg": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "html-webpack-plugin": "^2.16.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+} //import axios from 'axios';
 //import { processCurrentWeather, processForecastWeather } from './helpers';
 
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
