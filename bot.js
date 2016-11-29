@@ -1,6 +1,6 @@
 'use strict';
 {
-  "name": "weather-app",
+  "name": "wweather-app",
   "version": "1.0.0",
   "description": "",
   "main": "bot.js",
