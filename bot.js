@@ -14,7 +14,7 @@ function getForecast(location) {
 
 //export default function getWeather(location) {
 function getWeather(location) {
-  const current =  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  const context.forecast =  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
  // const forecast = getForecast(location);
 }    
 // Weather Example
@@ -90,9 +90,9 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     //context.forecast = getForecast(context.loc)
-    current = getWeather(context.loc)
+    context.forecast = getWeather(context.loc)
     //context.forecast = 'Borzalmas idő van, DE!! Gödöllőn trópusi!';
-    cb(current);
+    cb(context.forecast);
   },
 };
 
