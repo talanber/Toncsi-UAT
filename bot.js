@@ -5,7 +5,7 @@
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 
 function getCurrentWeather(location) {
-  return  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  return  context.current = (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
 }
 
 function getForecast(location) {
