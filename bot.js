@@ -14,7 +14,7 @@ function getForecast(location) {
 
 //export default function getWeather(location) {
 function getWeather(location) {
-  const context.forecast =  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  context.forecast =  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
  // const forecast = getForecast(location);
 }    
 // Weather Example
