@@ -12,7 +12,8 @@ function getForecast(location) {
   return axios.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=metric&cnt=5&APPID=${APP_ID}`);
 }
 
-export default function getWeather(location) {
+//export default function getWeather(location) {
+function getWeather(location) {
   const current = getCurrentWeather(location);
   const forecast = getForecast(location);
   return axios.all([current, forecast])
