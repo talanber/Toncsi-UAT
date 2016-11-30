@@ -8,9 +8,9 @@ function getCurrentWeather(location) {
   return  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
 }
 
-function getForecast(location) {
-  return  (`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=metric&cnt=5&APPID=${APP_ID}`);
-}
+//function getForecast(location) {
+//  return  (`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=metric&cnt=5&APPID=${APP_ID}`);//
+//}
 
 //export default function getWeather(location) {
 function getWeather(location) {
