@@ -101,9 +101,9 @@ const actions = {
         console.log(body) // Print the json response
         context.forecast =
 `
-A jelenlegi hőmérséklet itt: ${context.loc} ${response.body.main.temp} C fok 
-A minimum hőmérséklet  ${response.body.main.temp_min} C 
-A maximum  hőmérséklet } ${response.body.main.temp_max} C 
+A jelenlegi hőmérséklet itt: ${context.loc} ${response.body.main.temp} C 
+A minimum hőmérséklet    ${response.body.main.temp_min} C 
+A maximum  hőmérséklet   ${response.body.main.temp_max} C 
 A szélsebesség           ${response.body.wind.speed} km/óra
 A szél iránya            ${response.body.wind.deg} fok
 `
