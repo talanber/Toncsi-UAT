@@ -1,11 +1,12 @@
 'use strict';
+var request = require("request")
 //import axios from 'axios';
 //import { processCurrentWeather, processForecastWeather } from './helpers';
 
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 
 function getCurrentWeather(location) {
-  return  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  return (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
 }
 
 //function getForecast(location) {
@@ -14,9 +15,9 @@ function getCurrentWeather(location) {
 
 //export default function getWeather(location) {
 function getWeather(location) {
-  context.forecast =  (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
- // const forecast = getForecast(location);
-}    
+  context.forecast = (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
+  // const forecast = getForecast(location);
+}
 // Weather Example
 // See https://wit.ai/sungkim/weather/stories and https://wit.ai/docs/quickstart
 const Wit = require('node-wit').Wit;
@@ -91,8 +92,17 @@ const actions = {
     // context.forecast = apiCall(context.loc)
     //context.forecast = getForecast(context.loc)
     //context.forecast = (`http://api.openweathermap.org/data/2.5/weather?q=${%27'London'%27}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84');
-    context.forecast = 'Borzalmas idő van, DE!! Gödöllőn trópusi!';
-    cb(context.forecast);
+    request({
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
+      json: true
+    }, function (error, response, body) {
+
+      if (!error && response.statusCode === 200) {
+        console.log(body) // Print the json response
+        context.forecast = `Az idő ${context.loc} ${response.body.main.temp}`;
+        cb(context);
+      }
+    })
   },
 };
 
