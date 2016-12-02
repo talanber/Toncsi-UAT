@@ -103,7 +103,7 @@ const actions = {
 `A jelenlegi hőmérséklet itt: ${context.loc} ${response.body.main.temp} C fok 
 A minimum hőmérséklet  ${response.body.main.temp_min} C 
 A maximum  hőmérséklet } ${response.body.main.temp_max} C 
-A szélsebesség           ${response.body.main.wind}km/óra
+A szélsebesség           ${response.body.main.speed} km/óra
 `
         ;
         cb(context);
