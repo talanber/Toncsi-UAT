@@ -100,9 +100,11 @@ const actions = {
       if (!error && response.statusCode === 200) {
         console.log(body) // Print the json response
         context.forecast =
-`A jelenlegi hőmérséklet itt: ${context.loc} ${response.body.main.temp} C /n 
-A minimum hőmérséklet ma itt: ${context.loc} ${response.body.main.temp_min} C 
-A aximum  hőmérséklet ma itt: ${context.loc} ${response.body.main.temp_max} C `
+`A jelenlegi hőmérséklet itt: ${context.loc} ${response.body.main.temp} C fok 
+A minimum hőmérséklet  ${response.body.main.temp_min} C 
+A maximum  hőmérséklet } ${response.body.main.temp_max} C 
+A szélsebesség           ${response.body.main.wind}km/óra
+`
         ;
         cb(context);
       }
