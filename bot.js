@@ -99,7 +99,7 @@ const actions = {
 
       if (!error && response.statusCode === 200) {
         console.log(body) // Print the json response
-        context.forecast = `Az idő ${context.loc} ${response.body.main.temp}`;
+        context.forecast = `Az hőmérséklet itt: ${context.loc} ${response.body.main.temp}`;
         cb(context);
       }
     })
