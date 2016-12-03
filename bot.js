@@ -106,7 +106,10 @@ A szélsebesség ${response.body.wind.speed} km/óra
 `
         ;
         cb(context);
+}
 
+      if (!error && response.statusCode === 200) {
+        console.log(body) // Print the json response
         context.forecast =
 `
 if (${response.body.wind.deg} > 338 and ${response.body.wind.deg} < 23 ) then A szél iránya  Észak
