@@ -107,14 +107,14 @@ A mai maximum  hőmérséklet   ${response.body.main.temp_max} C
 Légynomás                    ${response.body.main.pressure} Hpa 
 Páratartalom                 ${response.body.main.humidity} % 
 A szélsebesség               ${response.body.wind.speed} km/óra
-if  ( ${response.body.wind.deg} > 348 and  ${response.body.wind.deg} < 23 then A szél iránya  Északi )
-if  ( ${response.body.wind.deg} > 22 and  ${response.body.wind.deg} < 67 then A szél iránya  Északkeleti )
-if  ( ${response.body.wind.deg} > 66 and  ${response.body.wind.deg} < 112 then A szél iránya  Keleti )
-if  ( ${response.body.wind.deg} > 112 and  ${response.body.wind.deg} < 157 then A szél iránya  Délkeleti )
-if  ( ${response.body.wind.deg} > 156 and  ${response.body.wind.deg} < 202 then A szél iránya  Déli )
-if  ( ${response.body.wind.deg} > 201 and  ${response.body.wind.deg} < 246 then A szél iránya  Délnyugati )
-if  ( ${response.body.wind.deg} > 245 and  ${response.body.wind.deg} < 289 then A szél iránya  Nyugati )
-if  ( ${response.body.wind.deg} > 289 and  ${response.body.wind.deg} < 348 then A szél iránya  Északnyugati )
+if  ( ${response.body.wind.deg} > 348 and  ${response.body.wind.deg} < 23 ) then A szél iránya  Északi 
+if  ( ${response.body.wind.deg} > 22 and  ${response.body.wind.deg} < 67  ) then A szél iránya  Északkeleti 
+if  ( ${response.body.wind.deg} > 66 and  ${response.body.wind.deg} < 112 ) then A szél iránya  Keleti
+if  ( ${response.body.wind.deg} > 112 and  ${response.body.wind.deg} < 157 ) then A szél iránya  Délkeleti
+if  ( ${response.body.wind.deg} > 156 and  ${response.body.wind.deg} < 202)  then A szél iránya  Déli 
+if  ( ${response.body.wind.deg} > 201 and  ${response.body.wind.deg} < 246 ) then A szél iránya  Délnyugati 
+if  ( ${response.body.wind.deg} > 245 and  ${response.body.wind.deg} < 289 ) then A szél iránya  Nyugati
+if  ( ${response.body.wind.deg} > 289 and  ${response.body.wind.deg} < 348 ) then A szél iránya  Északnyugati 
 `
         ;
         cb(context);
