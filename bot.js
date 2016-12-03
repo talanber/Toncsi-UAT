@@ -4,6 +4,7 @@ var request = require("request")
 //import { processCurrentWeather, processForecastWeather } from './helpers';
 
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
+var char irany;
 
 function getCurrentWeather(location) {
   return (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
@@ -94,7 +95,6 @@ const actions = {
     }, function (error, response, body) {
 
       if (!error && response.statusCode === 200) {
-var irany;
 if {response.body.wind.deg} > 338 and  ${response.body.wind.deg}  < 23 then irany = "A szél iránya Északi";
 if {response.body.wind.deg} > 22 and  ${response.body.wind.deg}  < 67 then irany = "A szél iránya Északkeleti";
 if {response.body.wind.deg} > 67 and  ${response.body.wind.deg}  < 102 then irany = "A szél iránya Keleti";
