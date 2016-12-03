@@ -95,14 +95,15 @@ const actions = {
     }, function (error, response, body) {
 
       if (!error && response.statusCode === 200) {
-if ${response.body.wind.deg} > 338 and  ${response.body.wind.deg}  < 23 then irany = "A szél iránya Északi";
-if ${response.body.wind.deg} > 22  and  ${response.body.wind.deg}  < 67 then irany = "A szél iránya Északkeleti";
-if ${response.body.wind.deg} > 67  and  ${response.body.wind.deg}  < 102 then irany = "A szél iránya Keleti";
-if ${response.body.wind.deg} > 102 and  ${response.body.wind.deg}  < 147 then irany = "A szél iránya Délkeleti";
-if ${response.body.wind.deg} > 147 and  ${response.body.wind.deg}  < 193 then irany = "A szél iránya Déli";
-if ${response.body.wind.deg} > 193 and  ${response.body.wind.deg}  < 238 then irany = "A szél iránya Délnyugati";
-if ${response.body.wind.deg} > 238 and  ${response.body.wind.deg}  < 283 then irany = "A szél iránya Nyugati";
-if ${response.body.wind.deg} > 283 and  ${response.body.wind.deg}  < 339 then irany = "A szél iránya Északnyugati";
+
+if (${response.body.wind.deg} > 338 and  ${response.body.wind.deg}  < 23) then irany = "A szél iránya Északi";
+if (${response.body.wind.deg} > 22  and  ${response.body.wind.deg}  < 67) then irany = "A szél iránya Északkeleti";
+if (${response.body.wind.deg} > 67  and  ${response.body.wind.deg}  < 102) then irany = "A szél iránya Keleti";
+if (${response.body.wind.deg} > 102 and  ${response.body.wind.deg}  < 147) then irany = "A szél iránya Délkeleti";
+if (${response.body.wind.deg} > 147 and  ${response.body.wind.deg}  < 193) then irany = "A szél iránya Déli";
+if (${response.body.wind.deg} > 193 and  ${response.body.wind.deg}  < 238) then irany = "A szél iránya Délnyugati";
+if (${response.body.wind.deg} > 238 and  ${response.body.wind.deg}  < 283) then irany = "A szél iránya Nyugati";
+if (${response.body.wind.deg} > 283 and  ${response.body.wind.deg}  < 339) then irany = "A szél iránya Északnyugati";
            
 console.log(body) // Print the json response
         context.forecast =
