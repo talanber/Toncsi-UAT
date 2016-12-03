@@ -5,7 +5,7 @@ var request = require("request")
 
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 var irany = "";
-
+var date = new Date(UNIX_Timestamp * 1000);
 
 //export default function getWeather(location) {
 function getWeather(location) {
@@ -80,8 +80,84 @@ const actions = {
     console.log(error.message);
   },
 
-  // getForecast bot executes
+  // getCurrent bot executes
   ['getCurrent'](sessionId, context, cb) {
+    request({
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
+      json: true
+    }, function (error, response, body) {
+
+      if (!error && response.statusCode === 200) {
+
+if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
+if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
+if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) {irany = "A szél iránya Keleti";}
+if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
+if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
+if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
+if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
+if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
+           
+console.log(body) // Print the json response
+        context.forecast =
+`
+Jelenlegi idő itt:        ${context.loc} 
+Most a hőmérséklet  ${response.body.main.temp} C 
+A mai minimum       ${response.body.main.temp_min} C 
+A mai maximum       ${response.body.main.temp_max} C 
+Légnyomás           ${response.body.main.pressure} Hpa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
+${irany}
+`
+        cb(context);
+
+      }
+    })
+  },
+ };
+
+  // getForecast bot executes
+  ['getForecast'](sessionId, context, cb) {
+    request({
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
+      json: true
+    }, function (error, response, body) {
+
+      if (!error && response.statusCode === 200) {
+
+if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
+if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
+if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) {irany = "A szél iránya Keleti";}
+if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
+if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
+if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
+if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
+if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
+           
+console.log(body) // Print the json response
+        context.forecast =
+`
+Jelenlegi idő itt:        ${context.loc} 
+Most a hőmérséklet  ${response.body.main.temp} C 
+A mai minimum       ${response.body.main.temp_min} C 
+A mai maximum       ${response.body.main.temp_max} C 
+Légnyomás           ${response.body.main.pressure} Hpa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
+${irany}
+`
+        cb(context);
+
+      }
+    })
+  },
+ };
+
+
+
+  // getForecast bot executes
+  ['getFÍorecast'](sessionId, context, cb) {
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
