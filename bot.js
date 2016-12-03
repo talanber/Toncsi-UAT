@@ -115,7 +115,7 @@ ${irany}
       }
     })
   },
- };
+// };
 
   // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
