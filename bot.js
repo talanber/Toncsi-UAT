@@ -104,8 +104,6 @@ Légynomás      ${response.body.main.pressure} Hpa
 Páratartalom   ${response.body.main.humidity} % 
 A szélsebesség ${response.body.wind.speed} km/óra
 `
-      }
-      ;
         cb(context);
 
       }
