@@ -88,10 +88,6 @@ const actions = {
 
   // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
-    // Here should go the api call, e.g.:
-    // context.forecast = apiCall(context.loc)
-    //context.forecast = getForecast(context.loc)
-    //context.forecast = (`http://api.openweathermap.org/data/2.5/weather?q=${%27'London'%27}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84');
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
@@ -101,16 +97,24 @@ const actions = {
         console.log(body) // Print the json response
         context.forecast =
 `
-Hömérséklet itt: ${context.loc} ${response.body.main.temp} C 
-A mai minimum    ${response.body.main.temp_min} C 
-A mai maximum    ${response.body.main.temp_max} C 
-Légynomás        ${response.body.main.pressure} Hpa 
-Páratartalom     ${response.body.main.humidity} % 
-A szélsebesség   ${response.body.wind.speed} km/óra
-A szél iránya    ${response.body.wind.deg} fok
+Ma itt:        ${context.loc} ${response.body.main.temp} C 
+A mai minimum  ${response.body.main.temp_min} C 
+A mai maximum  ${response.body.main.temp_max} C 
+Légynomás      ${response.body.main.pressure} Hpa 
+Páratartalom   ${response.body.main.humidity} % 
+A szélsebesség ${response.body.wind.speed} km/óra
+if (${response.body.wind.deg} > 338 and ${response.body.wind.deg} < 23 ) then A szél iránya  Észak
+if (${response.body.wind.deg} > 22  and ${response.body.wind.deg} < 67 ) then A szél iránya  ÉszakKeleti
+if (${response.body.wind.deg} > 67 and ${response.body.wind.deg} < 102 ) then A szél iránya  Keleti
+if (${response.body.wind.deg} > 102 and ${response.body.wind.deg} < 147 ) then A szél iránya  Délkeleti
+if (${response.body.wind.deg} > 147 and ${response.body.wind.deg} < 193 ) then A szél iránya  Déli
+if (${response.body.wind.deg} > 193 and ${response.body.wind.deg} < 238 ) then A szél iránya  Délnyugati
+if (${response.body.wind.deg} > 238 and ${response.body.wind.deg} < 253 ) then A szél iránya  Nyugati
+if (${response.body.wind.deg} > 253 and ${response.body.wind.deg} < 338 ) then A szél iránya  Északnyugati
 `
         ;
         cb(context);
+
       }
     })
   },
