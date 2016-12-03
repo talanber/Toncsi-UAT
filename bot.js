@@ -103,6 +103,12 @@ A mai maximum  ${response.body.main.temp_max} C
 Légynomás      ${response.body.main.pressure} Hpa 
 Páratartalom   ${response.body.main.humidity} % 
 A szélsebesség ${response.body.wind.speed} km/óra
+`
+        ;
+        cb(context);
+
+        context.forecast =
+`
 if (${response.body.wind.deg} > 338 and ${response.body.wind.deg} < 23 ) then A szél iránya  Észak
 if (${response.body.wind.deg} > 22  and ${response.body.wind.deg} < 67 ) then A szél iránya  ÉszakKeleti
 if (${response.body.wind.deg} > 67 and ${response.body.wind.deg} < 102 ) then A szél iránya  Keleti
