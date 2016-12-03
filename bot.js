@@ -94,7 +94,7 @@ const actions = {
     }, function (error, response, body) {
 
       if (!error && response.statusCode === 200) {
-var irany
+var irany;
 if ${response.body.wind.deg} > 338 and  ${response.body.wind.deg}  < 23 then irany = "A szél iránya Északi";
 if ${response.body.wind.deg} > 22 and  ${response.body.wind.deg}  < 67 then irany = "A szél iránya Északkeleti";
 if ${response.body.wind.deg} > 67 and  ${response.body.wind.deg}  < 102 then irany = "A szél iránya Keleti";
