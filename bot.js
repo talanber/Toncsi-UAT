@@ -110,41 +110,7 @@ A szélsebesség ${response.body.wind.speed} km/óra
       }
     })
   },
-    
-  ['getForecast'](sessionId, context, cb) {
-    request({
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
-      json: true
-    }, function (error, response, body) {
-
-      if (!error && response.statusCode === 200) {
-        console.log(body) // Print the json response
-        context.forecast =
-`
-`
-        ;
-        cb(context);
-}
-
-      if (!error && response.statusCode === 200) {
-        console.log(body) // Print the json response
-        context.forecast =
-`
-if (${response.body.wind.deg} > 338 and ${response.body.wind.deg} < 23 ) then A szél iránya  Észak
-if (${response.body.wind.deg} > 22  and ${response.body.wind.deg} < 67 ) then A szél iránya  ÉszakKeleti
-if (${response.body.wind.deg} > 67 and ${response.body.wind.deg} < 102 ) then A szél iránya  Keleti
-if (${response.body.wind.deg} > 102 and ${response.body.wind.deg} < 147 ) then A szél iránya  Délkeleti
-if (${response.body.wind.deg} > 147 and ${response.body.wind.deg} < 193 ) then A szél iránya  Déli
-if (${response.body.wind.deg} > 193 and ${response.body.wind.deg} < 238 ) then A szél iránya  Délnyugati
-if (${response.body.wind.deg} > 238 and ${response.body.wind.deg} < 253 ) then A szél iránya  Nyugati
-if (${response.body.wind.deg} > 253 and ${response.body.wind.deg} < 338 ) then A szél iránya  Északnyugati
-`
-        cb(context);
-
-      }
-    })
-  },
-};
+ };
 
 
 const getWit = () => {
