@@ -121,7 +121,8 @@ if (${response.body.wind.deg} > 193 and ${response.body.wind.deg} < 238 ) then A
 if (${response.body.wind.deg} > 238 and ${response.body.wind.deg} < 253 ) then A szél iránya  Nyugati
 if (${response.body.wind.deg} > 253 and ${response.body.wind.deg} < 338 ) then A szél iránya  Északnyugati
 `
-        ;
+      }
+      ;
         cb(context);
 
       }
