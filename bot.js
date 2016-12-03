@@ -109,6 +109,8 @@ A szélsebesség ${response.body.wind.speed} km/óra
 
       }
     })
+  },
+    
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
