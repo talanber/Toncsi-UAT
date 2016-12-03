@@ -97,10 +97,11 @@ const actions = {
         console.log(body) // Print the json response
         context.forecast =
 `
-Ma itt:        ${context.loc} ${response.body.main.temp} C 
+Jelenlegi idő itt:        ${context.loc} 
+'Mostani hőm.  ${response.body.main.temp} C 
 A mai minimum  ${response.body.main.temp_min} C 
 A mai maximum  ${response.body.main.temp_max} C 
-Légynomás      ${response.body.main.pressure} Hpa 
+Légnyomás      ${response.body.main.pressure} Hpa 
 Páratartalom   ${response.body.main.humidity} % 
 A szélsebesség ${response.body.wind.speed} km/óra
 `
