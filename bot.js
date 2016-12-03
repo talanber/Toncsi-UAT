@@ -98,13 +98,13 @@ const actions = {
         context.forecast =
 `
 Jelenlegi idő itt:        ${context.loc} 
-'Mostani hőm.  ${response.body.main.temp} C 
-A mai minimum  ${response.body.main.temp_min} C 
-A mai maximum  ${response.body.main.temp_max} C 
-Légnyomás      ${response.body.main.pressure} Hpa 
-Páratartalom   ${response.body.main.humidity} % 
-A szélsebesség ${response.body.wind.speed} km/óra
-A szél irány   ${response.body.wind.deg} fok
+Most a hőmérséklet  ${response.body.main.temp} C 
+A mai minimum       ${response.body.main.temp_min} C 
+A mai maximum       ${response.body.main.temp_max} C 
+Légnyomás           ${response.body.main.pressure} Hpa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
+A szél irány        ${response.body.wind.deg} fok
 `
         cb(context);
 
