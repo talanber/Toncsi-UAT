@@ -5,7 +5,7 @@ var request = require("request")
 
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 var irany = "";
-var date = new Date(UNIX_Timestamp * 1000);
+//var date = new Date(UNIX_Timestamp * 1000);
 
 //export default function getWeather(location) {
 function getWeather(location) {
