@@ -96,8 +96,8 @@ const actions = {
 
       if (!error && response.statusCode === 200) {
 
-if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23) { irany = "A szél iránya Északi"; }
-if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67) { irany = "A szél iránya Északkeleti";}
+if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
+if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
 if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) {irany = "A szél iránya Keleti";}
 if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
 if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
@@ -115,7 +115,7 @@ A mai maximum       ${response.body.main.temp_max} C
 Légnyomás           ${response.body.main.pressure} Hpa 
 Páratartalom        ${response.body.main.humidity} % 
 A szélsebesség      ${response.body.wind.speed} km/óra
-A szélirány         ${irany}
+${irany}
 `
         cb(context);
 
