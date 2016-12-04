@@ -128,8 +128,6 @@ console.log(body) // Print the json response
 `
 Előrejelzés itt:    ${context.loc} 
 ${Date(response.body.dt * 1000)}
-Most a hőmérséklet  ${response.body.main.temp} C 
-${irany}
 `
         cb(context);
 
