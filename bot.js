@@ -127,9 +127,7 @@ console.log(body) // Print the json response
         context.forecast =
 `
 Előrejelzés itt:    ${context.loc} 
-${Date(response.body.dt[1] * 1000)}
-${Date(response.body.dt[2] * 1000)}
-${Date(response.body.dt[3] * 1000)}
+${Date(response.body.dt * 1000)}
 Most a hőmérséklet  ${response.body.main.temp} C 
 ${irany}
 `
