@@ -93,13 +93,11 @@ if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "
 if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
 if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
 if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
-{ orsz =  response.body.main.country}           
 console.log(body) // Print the json response
         context.forecast =
 `
 ${Date(response.body.dt * 1000)}
 Jelenlegi idő itt:        ${context.loc} 
-${orsz}
 Most a hőmérséklet  ${response.body.main.temp} C 
 A mai minimum       ${response.body.main.temp_min} C 
 A mai maximum       ${response.body.main.temp_max} C 
