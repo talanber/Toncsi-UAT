@@ -83,7 +83,7 @@ const actions = {
   // getCurrent bot executes
   ['getCurrent'](sessionId, context, cb) {
     request({
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&type=accurate&lang=hu&units=metric&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
     }, function (error, response, body) {
 
