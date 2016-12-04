@@ -7,11 +7,6 @@ const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 var irany = "";
 //var date = new Date(UNIX_Timestamp * 1000);
 
-//export default function getWeather(location) {
-function getWeather(location) {
-  context.forecast = (`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${APP_ID}`);
-  // const forecast = getForecast(location);
-}
 // Weather Example
 // See https://wit.ai/sungkim/weather/stories and https://wit.ai/docs/quickstart
 const Wit = require('node-wit').Wit;
@@ -91,7 +86,7 @@ const actions = {
 
 if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
 if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
-if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) {irany = "A szél iránya Keleti";}
+if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) { irany = "A szél iránya Keleti";}
 if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
 if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
 if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
@@ -128,7 +123,7 @@ ${irany}
 
 if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
 if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
-if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) {irany = "A szél iránya Keleti";}
+if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) { irany = "A szél iránya Keleti";}
 if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
 if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
 if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
