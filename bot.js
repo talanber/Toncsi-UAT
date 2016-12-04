@@ -98,6 +98,7 @@ console.log(body) // Print the json response
 `
 ${Date(response.body.dt * 1000)}
 Jelenlegi idő itt:        ${context.loc} 
+Ország              ${response.body.main.country} C 
 Most a hőmérséklet  ${response.body.main.temp} C 
 A mai minimum       ${response.body.main.temp_min} C 
 A mai maximum       ${response.body.main.temp_max} C 
