@@ -102,7 +102,7 @@ Most a hőmérséklet  ${response.body.main.temp} C
 A mai minimum       ${response.body.main.temp_min} C 
 A mai maximum       ${response.body.main.temp_max} C 
 Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure} Hpa 
+Légnyomás           ${response.body.main.pressure} hPa 
 Páratartalom        ${response.body.main.humidity} % 
 A szélsebesség      ${response.body.wind.speed} km/óra
 ${irany}
@@ -140,7 +140,7 @@ Most a hőmérséklet  ${response.body.main.temp} C
 A mai minimum       ${response.body.main.temp_min} C 
 A mai maximum       ${response.body.main.temp_max} C 
 Égkép               ${response.body.weather.clouds}
-Légnyomás           ${response.body.main.pressure} Hpa 
+Légnyomás           ${response.body.main.pressure} hPa 
 Páratartalom        ${response.body.main.humidity} % 
 A szélsebesség      ${response.body.wind.speed} km/óra
 ${irany}
