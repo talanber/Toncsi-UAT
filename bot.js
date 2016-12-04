@@ -117,7 +117,7 @@ ${irany}
   // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
     request({
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&lang=hu&type=accurate&APPID=07976ea0d7f1371a9e527add86391b84`,
+      url: `http://api.openweathermap.org/data/2.5/find?q=${context.loc}n&units=metric&type=accurate&lang=hu&appid=07976ea0d7f1371a9e527add86391b84`,
       json: true
     }, function (error, response, body) {
 
