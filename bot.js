@@ -96,12 +96,12 @@ if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "
 console.log(body) // Print the json response
         context.forecast =
 `
-${response.body.dt_txt}
+${response.body.dt}
 Jelenlegi idő itt:        ${context.loc} 
 Most a hőmérséklet  ${response.body.main.temp} C 
 A mai minimum       ${response.body.main.temp_min} C 
 A mai maximum       ${response.body.main.temp_max} C 
-Égkép               ${response.body.weather.descripion}
+Égkép               ${response.body.weather.description}
 Légnyomás           ${response.body.main.pressure} Hpa 
 Páratartalom        ${response.body.main.humidity} % 
 A szélsebesség      ${response.body.wind.speed} km/óra
