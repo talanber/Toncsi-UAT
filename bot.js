@@ -213,12 +213,12 @@ ${irany}
 	      context.forecast =
 `
 												 
-A mai minimum       ${response.day.main.temp_min} °C 
-A mai maximum       ${response.day.main.temp_max} °C 
-Égkép               ${response.day.weather[0].description}
-Légnyomás           ${response.day.main.pressure} hPa 
-Páratartalom        ${response.day.main.humidity} % 
-A szélsebesség      ${response.day.main.wind.speed} km/óra
+A mai minimum       ${response.day.body.main.temp_min} °C 
+A mai maximum       ${response.day.body.main.temp_max} °C 
+Égkép               ${response.day.body.weather[0].description}
+Légnyomás           ${response.day.body.main.pressure} hPa 
+Páratartalom        ${response.day.body.main.humidity} % 
+A szélsebesség      ${response.day.body.main.wind.speed} km/óra
 `
 
         cb(context);
