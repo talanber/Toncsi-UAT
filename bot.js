@@ -79,7 +79,7 @@ function processCurrentWeather(results) {
   }
 }
 
-function processForecastWeather(results) {
+function processForecastWeather(response) {
   const forecast = response[1].data;
   let date;
   let forecastWeather = [];
