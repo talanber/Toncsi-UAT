@@ -80,7 +80,7 @@ function processCurrentWeather(results) {
 }
 
 function processForecastWeather(results) {
-  const forecast = results[1].data;
+  const forecast = response[1].data;
   let date;
   let forecastWeather = [];
   for (let i = 0; i < 5; i++) {
