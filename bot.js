@@ -25,6 +25,38 @@ const firstEntityValue = (entities, entity) => {
   return typeof val === 'object' ? val.value : val;
 };
 
+
+
+  
+  
+const dayMap = {
+  '0': 'Sun',
+  '1': 'Mon',
+  '2': 'Tue',
+  '3': 'Wed',
+  '4': 'Thu',
+  '5': 'Fri',
+  '6': 'Sat'
+};
+
+const monthMap = {
+  '0': 'Jan',
+  '1': 'Feb',
+  '2': 'Mar',
+  '3': 'Apr',
+  '4': 'May',
+  '5': 'Jun',
+  '6': 'Jul',
+  '7': 'Aug',
+  '8': 'Sep',
+  '9': 'Oct',
+  '10': 'Nov',
+  '11': 'Dev'
+};
+
+
+
+
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
@@ -114,32 +146,6 @@ ${irany}
   },
 // };
 
-  
-  
-const dayMap = {
-  '0': 'Sun',
-  '1': 'Mon',
-  '2': 'Tue',
-  '3': 'Wed',
-  '4': 'Thu',
-  '5': 'Fri',
-  '6': 'Sat'
-};
-
-const monthMap = {
-  '0': 'Jan',
-  '1': 'Feb',
-  '2': 'Mar',
-  '3': 'Apr',
-  '4': 'May',
-  '5': 'Jun',
-  '6': 'Jul',
-  '7': 'Aug',
-  '8': 'Sep',
-  '9': 'Oct',
-  '10': 'Nov',
-  '11': 'Dev'
-};
 
 function toTitleCase(str) {
   return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
