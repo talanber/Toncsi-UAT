@@ -213,7 +213,6 @@ ${irany}
 	      context.forecast =
 `
 												 
-időpont:            ${response.list.dt}
 A mai minimum       ${response.list.main.temp_min} °C 
 A mai maximum       ${response.list.main.temp_max} °C 
 Égkép               ${response.list.weather[0].description}
@@ -229,7 +228,6 @@ day.setDate(day.getDate()+1);
         context.forecast =
 `
 												 
-időpont:            ${response.list.dt}
 A mai minimum       ${response.list.main.temp_min} °C 
 A mai maximum       ${response.list.main.temp_max} °C 
 Égkép               ${response.list.weather[0].description}
