@@ -211,10 +211,12 @@ ${irany}
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-                 temp min ${JSON.stringify(response.list.temp.min)}
- 		 temp max ${JSON.stringify(response.list.temp.max)}
-		 páratartalom:${JSON.stringify(response.list.humidity)}
-		 időkép: ${response.list.weather[0].description}
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
+Égkép               ${response.body.weather[0].description}
+Légnyomás           ${response.body.main.pressure} hPa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
 `
 
         cb(context);
@@ -225,10 +227,12 @@ day.setDate(day.getDate()+1);
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-                 temp min ${JSON.stringify(response.list.temp.min)}
- 		 temp max ${JSON.stringify(response.list.temp.max)}
-		 páratartalom:${JSON.stringify(response.list.humidity)}
-		 időkép: ${response.list.weather[0].description}
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
+Égkép               ${response.body.weather[0].description}
+Légnyomás           ${response.body.main.pressure} hPa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
 `
         cb(context);
 			
