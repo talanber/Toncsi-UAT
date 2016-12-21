@@ -221,7 +221,20 @@ ${irany}
         context.forecast =
 `
 Előrejelzés itt:    ${context.loc} 
-${forecastWeather}
+
+    date =  processDate(response.list[1].dt);
+    forecastWeather.push({
+      date,
+      description: toTitleCase(response.list[1].weather[0].description),
+      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
+      minTemp: `${response.list[1].temp.min}°C`,
+      maxTemp: `${response.list[1].temp.max}°C`,
+      humidity: response.list[1].humidity
+    })
+
+
+
+//${forecastWeather}
 `
         cb(context);
 
