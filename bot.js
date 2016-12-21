@@ -211,10 +211,10 @@ ${irany}
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-                 temp min ${JSON.stringify(response.list[0].temp.min)}
- 		 temp max ${JSON.stringify(response.list[0].temp.max)}
-		 páratartalom:${JSON.stringify(response.list[0].humidity)}
-		 időkép: ${response.list[0].weather[0].description}
+                 temp min ${JSON.stringify(response.list.temp.min)}
+ 		 temp max ${JSON.stringify(response.list.temp.max)}
+		 páratartalom:${JSON.stringify(response.list.humidity)}
+		 időkép: ${response.list.weather[0].description}
 `
 
         cb(context);
@@ -225,10 +225,10 @@ day.setDate(day.getDate()+1);
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-                 temp min ${JSON.stringify(response.list[1].temp.min)}
- 		 temp max ${JSON.stringify(response.list[1].temp.max)}
-		 páratartalom:${JSON.stringify(response.list[1].humidity)}
-		 időkép: ${response.list[1].weather[0].description}
+                 temp min ${JSON.stringify(response.list.temp.min)}
+ 		 temp max ${JSON.stringify(response.list.temp.max)}
+		 páratartalom:${JSON.stringify(response.list.humidity)}
+		 időkép: ${response.list.weather[0].description}
 `
         cb(context);
 			
