@@ -207,7 +207,10 @@ ${irany}
 //        var retData = JSON.parse(body);
 	var params = [];
 	var day = new Date();
-        context.forecast =
+
+	day.setDate(day.getDate());
+
+	      context.forecast =
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
