@@ -203,18 +203,50 @@ ${irany}
 
       if (!error && response.statusCode === 200) {
 
-    console.log(body) // Print the json response
-        context.forecast =
-`
-Előrejelzés itt:    ${context.loc} 
+          var retData = JSON.parse(body);
+					var params = [];
+					var day = new Date();
+												 
+						for(q in retData.list){
+							params.push(
+								{'daynum': day.getMonth()+1+"-"+day.getDate(),
+								'temp':JSON.stringify(retData.list[q].temp.day),
+					 			'hum':JSON.stringify(retData.list[q].humidity),
+					 			'des':retData.list[q].weather[0].description,
+					 			'icon':retData.list[q].weather[0].icon});
+													  
+								day.setDate(day.getDate()+1);
+							}
+			
+						context.city = retData.city.name+", "+retData.city.country;
+						context.forecast = params;
+						res.render('7Day',context);      
+        
+        
+        
+        
+        
+        
+            console.log(body) // Print the json response
 
-
-Időpont: ${Date(response.list[1].dt * 1000)}
-Minimun: ${response.list[1].temp.min}°C,
-Maximum: ${response.list[1].temp.max}°C,
-Páratartalom: ${response.list[1].humidity}% 
-
-`
+        		var retData = JSON.parse(body);
+						var params = [];
+						var day = new Date();
+												 
+						for(q in retData.list){
+							params.push(
+								{'daynum': day.getMonth()+1+"-"+day.getDate(),
+								'temp':JSON.stringify(retData.list[q].temp.day),
+					 			'hum':JSON.stringify(retData.list[q].humidity),
+					 			'des':retData.list[q].weather[0].description,
+					 			'icon':retData.list[q].weather[0].icon});
+													  
+								day.setDate(day.getDate()+1);
+							}
+			
+						context.city = retData.city.name+", "+retData.city.country;
+						context.forecast = params;
+        
         cb(context);
 //Időpont: ${Date(response.list[i].dt * 1000)}
 //Időpont: ${processDate(response.list[1].dt)}
