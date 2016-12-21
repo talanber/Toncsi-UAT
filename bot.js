@@ -153,8 +153,8 @@ const actions = {
   },
 
   // getCurrent bot executes
-  ['getCurrent'](sessionId, context, cb) {
-//  ['getForecast'](sessionId, context, cb) {
+//  ['getCurrent'](sessionId, context, cb) {
+  ['getForecast'](sessionId, context, cb) {
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&lang=hu&type=accurate&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
@@ -194,8 +194,8 @@ ${irany}
   
   
 // getForecast bot executes
-  ['getForecast'](sessionId, context, cb) {
-//  ['getCurrent'](sessionId, context, cb) {
+//  ['getForecast'](sessionId, context, cb) {
+  ['getCurrent'](sessionId, context, cb) {
     request({
       url: `http://api.openweathermap.org/data/2.5/find?q=${context.loc}n&units=metric&type=accurate&lang=hu&appid=07976ea0d7f1371a9e527add86391b84`,
       json: true
@@ -226,15 +226,11 @@ Előrejelzés itt:    ${context.loc}
     forecastWeather.push({
       date,
       description: toTitleCase(response.list[1].weather[0].description),
-//      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
+      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
       minTemp: `${response.list[1].temp.min}°C`,
       maxTemp: `${response.list[1].temp.max}°C`,
       humidity: response.list[1].humidity
     })
-
-
-
-//${forecastWeather}
 `
         cb(context);
 
