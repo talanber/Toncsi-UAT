@@ -175,9 +175,9 @@ console.log(body) // Print the json response
 `
 ${Date(response.body.dt * 1000)}
 Jelenlegi idő itt:        ${context.loc} 
-Most a hőmérséklet  ${response.body.main.temp} C 
-A mai minimum       ${response.body.main.temp_min} C 
-A mai maximum       ${response.body.main.temp_max} C 
+Most a hőmérséklet  ${response.body.main.temp} °C 
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
 Égkép               ${response.body.weather[0].description}
 Légnyomás           ${response.body.main.pressure} hPa 
 Páratartalom        ${response.body.main.humidity} % 
@@ -222,15 +222,11 @@ ${irany}
 `
 Előrejelzés itt:    ${context.loc} 
 
-    date =  processDate(response.list[1].dt);
-    forecastWeather.push({
-      date,
-      description: toTitleCase(response.list[1].weather[0].description),
-      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
-      minTemp: `${response.list[1].temp.min}°C`,
-      maxTemp: `${response.list[1].temp.max}°C`,
-      humidity: response.list[1].humidity
-    })
+//    date =  processDate(response.list[1].dt);
+${Date(response.list[1].dt.dt * 1000)}
+Minimun: ${response.list[1].temp.min}°C,
+Maximum: ${response.list[1].temp.max}°C,
+Páratartalom: ${response.list[1].humidity}% 
 `
         cb(context);
 
