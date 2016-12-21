@@ -203,53 +203,27 @@ ${irany}
 
       if (!error && response.statusCode === 200) {
 
-          var retData = JSON.parse(body);
-					var params = [];
-					var day = new Date();
+        var retData = JSON.parse(body);
+	var params = [];
+	var day = new Date();
 												 
-						for(q in retData.list){
-							params.push(
-								{'daynum': day.getMonth()+1+"-"+day.getDate(),
-								'temp':JSON.stringify(retData.list[q].temp.day),
-					 			'hum':JSON.stringify(retData.list[q].humidity),
-					 			'des':retData.list[q].weather[0].description,
-					 			'icon':retData.list[q].weather[0].icon});
+	for(q in retData.list){
+		params.push(
+		{'daynum': day.getMonth()+1+"-"+day.getDate(),
+ 		 'temp':JSON.stringify(retData.list[q].temp.day),
+		 'hum':JSON.stringify(retData.list[q].humidity),
+		 'des':retData.list[q].weather[0].description,
+		 'icon':retData.list[q].weather[0].icon});
 													  
-								day.setDate(day.getDate()+1);
-							}
+		 day.setDate(day.getDate()+1);
+	}
 			
-						context.city = retData.city.name+", "+retData.city.country;
-						context.forecast = params;
-						res.render('7Day',context);      
-        
-        
-        
-        
-        
-        
-            console.log(body) // Print the json response
+	context.city = retData.city.name+", "+retData.city.country;
+	context.forecast = params;
+        res.render('7Day',context);
+//     console.log(body) // Print the json response
 
-        		var retData = JSON.parse(body);
-						var params = [];
-						var day = new Date();
-												 
-						for(q in retData.list){
-							params.push(
-								{'daynum': day.getMonth()+1+"-"+day.getDate(),
-								'temp':JSON.stringify(retData.list[q].temp.day),
-					 			'hum':JSON.stringify(retData.list[q].humidity),
-					 			'des':retData.list[q].weather[0].description,
-					 			'icon':retData.list[q].weather[0].icon});
-													  
-								day.setDate(day.getDate()+1);
-							}
-			
-						context.city = retData.city.name+", "+retData.city.country;
-						context.forecast = params;
-        
-        cb(context);
-//Időpont: ${Date(response.list[i].dt * 1000)}
-//Időpont: ${processDate(response.list[1].dt)}
+//          cb(context);
 
       }
     })
