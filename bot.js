@@ -230,7 +230,7 @@ day.setDate(day.getDate()+1);
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-A mai minimum       ${response.day.main..temp_min} °C 
+A mai minimum       ${response.day.main.temp_min} °C 
 A mai maximum       ${response.day.main.temp_max} °C 
 Égkép               ${response.day.weather[0].description}
 Légnyomás           ${response.day.main.pressure} hPa 
