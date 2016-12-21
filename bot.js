@@ -211,7 +211,8 @@ ${irany}
 	for(q in response.list){
 		params.push(
 		{'daynum': day.getMonth()+1+"-"+day.getDate(),
- 		 'temp':JSON.stringify(response.list[q].temp.day),
+ 		 'temp':JSON.stringify(response.list[q].temp.min),
+ 		 'temp':JSON.stringify(response.list[q].temp.max),
 		 'hum':JSON.stringify(response.list[q].humidity),
 		 'des':response.list[q].weather[0].description,
 		 'icon':response.list[q].weather[0].icon});
@@ -219,8 +220,8 @@ ${irany}
 		 day.setDate(day.getDate()+1);
 	}
 			
-	context.city     = context.loc;
-	context.forecast = params;
+//	context.city     = context.loc;
+//	context.forecast = params;
 //        res.render('7Day',context);
           cb(context);
 
