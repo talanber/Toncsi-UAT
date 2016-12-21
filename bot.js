@@ -203,7 +203,21 @@ ${irany}
 
       if (!error && response.statusCode === 200) {
 
-        const forecastWeather = processForecastWeather(response);            
+  const forecast = response[1].data;
+  let date;
+  let forecastWeather = [];
+  for (let i = 0; i < 5; i++) {
+    date =  processDate(forecast.list[i].dt);
+    forecastWeather.push({
+      date,
+      description: toTitleCase(forecast.list[i].weather[0].description),
+      icon: `/app/images/${forecast.list[i].weather[0].icon}.svg`,
+      minTemp: `${forecast.list[i].temp.min}°C`,
+      maxTemp: `${forecast.list[i].temp.max}°C`,
+      humidity: forecast.list[i].humidity
+    })
+
+        //        const forecastWeather = processForecastWeather(response);            
 console.log(body) // Print the json response
         context.forecast =
 `
