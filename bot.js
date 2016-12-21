@@ -208,12 +208,12 @@ ${irany}
 `
 Előrejelzés itt:    ${context.loc} 
 
-  for (let i = 0; i < 5; i++) {
+
 Időpont: ${processDate(response.list[1].dt)}
-Minimun: ${response.list[i].temp.min}°C,
-Maximum: ${response.list[i].temp.max}°C,
-Páratartalom: ${response.list[i].humidity}% 
-}
+Minimun: ${response.list[1].temp.min}°C,
+Maximum: ${response.list[1].temp.max}°C,
+Páratartalom: ${response.list[1].humidity}% 
+
 `
         cb(context);
 // ${Date(response.list[i].dt * 1000)}
