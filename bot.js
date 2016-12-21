@@ -216,7 +216,7 @@ ${irany}
       maxTemp: `${forecast.list[i].temp.max}°C`,
       humidity: forecast.list[i].humidity
     })
-
+  }
     console.log(body) // Print the json response
         context.forecast =
 `
@@ -227,7 +227,7 @@ ${forecastWeather}
 
       }
     })
-//  },
+  },
  };
 
 
