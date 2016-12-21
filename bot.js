@@ -210,15 +210,25 @@ ${irany}
         context.forecast =
 `
 												 
-	for(q in response.list){
-		 'daynum': ${day.getMonth()+1+"-"+day.getDate()}
-                 'temp':${JSON.stringify(response.list[q].temp.min)}
- 		 'temp':${JSON.stringify(response.list[q].temp.max)}
-		 'hum':${JSON.stringify(response.list[q].humidity)}
-		 'des': ${response.list[q].weather[0].description}
-		 'icon' ${response.list[q].weather[0].icon}
- 		 day.setDate(day.getDate()+1);
-	}
+		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
+                 temp min ${JSON.stringify(response.list[q].temp.min)}
+ 		 temp max ${JSON.stringify(response.list[q].temp.max)}
+		 páratartalom:${JSON.stringify(response.list[q].humidity)}
+		 időkép: ${response.list[q].weather[0].description}
+`
+
+        cb(context);
+
+day.setDate(day.getDate()+1);
+
+        context.forecast =
+`
+												 
+		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
+                 temp min ${JSON.stringify(response.list[q].temp.min)}
+ 		 temp max ${JSON.stringify(response.list[q].temp.max)}
+		 páratartalom:${JSON.stringify(response.list[q].humidity)}
+		 időkép: ${response.list[q].weather[0].description}
 `
         cb(context);
 			
