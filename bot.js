@@ -193,7 +193,7 @@ ${irany}
 
   
   
-  // getForecast bot executes
+// getForecast bot executes
 //  ['getForecast'](sessionId, context, cb) {
   ['getCurrent'](sessionId, context, cb) {
     request({
@@ -217,8 +217,7 @@ ${irany}
       humidity: forecast.list[i].humidity
     })
 
-        //        const forecastWeather = processForecastWeather(response);            
-console.log(body) // Print the json response
+    console.log(body) // Print the json response
         context.forecast =
 `
 Előrejelzés itt:    ${context.loc} 
@@ -228,7 +227,7 @@ ${forecastWeather}
 
       }
     })
-  },
+//  },
  };
 
 
