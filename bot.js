@@ -79,8 +79,8 @@ function processCurrentWeather(results) {
   }
 }
 
-function processForecastWeather(response) {
-  const forecast = response[1].data;
+function processForecastWeather(results) {
+  const forecast = results[1].data;
   let date;
   let forecastWeather = [];
   for (let i = 0; i < 5; i++) {
