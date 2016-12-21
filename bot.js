@@ -202,6 +202,7 @@ ${irany}
     }, function (error, response, body) {
 
       if (!error && response.statusCode === 200) {
+     console.log(body) // Print the json response
 
 //        var retData = JSON.parse(body);
 	var params = [];
@@ -220,10 +221,8 @@ ${irany}
 			
 	context.city     = context.loc;
 	context.forecast = params;
-        res.render('7Day',context);
-//     console.log(body) // Print the json response
-
-//          cb(context);
+//        res.render('7Day',context);
+          cb(context);
 
       }
     })
