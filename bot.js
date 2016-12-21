@@ -207,14 +207,14 @@ ${irany}
   let date;
   let forecastWeather = [];
   for (let i = 0; i < 5; i++) {
-    date =  processDate(forecast.list[i].dt);
+    date =  processDate(response.list[i].dt);
     forecastWeather.push({
       date,
-      description: toTitleCase(forecast.list[i].weather[0].description),
-      icon: `/app/images/${forecast.list[i].weather[0].icon}.svg`,
-      minTemp: `${forecast.list[i].temp.min}°C`,
-      maxTemp: `${forecast.list[i].temp.max}°C`,
-      humidity: forecast.list[i].humidity
+      description: toTitleCase(response.list[i].weather[0].description),
+      icon: `/app/images/${response.list[i].weather[0].icon}.svg`,
+      minTemp: `${response.list[i].temp.min}°C`,
+      maxTemp: `${response.list[i].temp.max}°C`,
+      humidity: response.list[i].humidity
     })
   }
     console.log(body) // Print the json response
