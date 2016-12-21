@@ -209,7 +209,7 @@ ${irany}
 Előrejelzés itt:    ${context.loc} 
 
 //    date =  processDate(response.list[1].dt);
-${Date(response.list[1].dt.dt * 1000)}
+${Date(response.list[1].dt * 1000)}
 Minimun: ${response.list[1].temp.min}°C,
 Maximum: ${response.list[1].temp.max}°C,
 Páratartalom: ${response.list[1].humidity}% 
