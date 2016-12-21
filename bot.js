@@ -226,7 +226,7 @@ Előrejelzés itt:    ${context.loc}
     forecastWeather.push({
       date,
       description: toTitleCase(response.list[1].weather[0].description),
-      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
+//      icon: `/app/images/${response.list[1].weather[0].icon}.svg`,
       minTemp: `${response.list[1].temp.min}°C`,
       maxTemp: `${response.list[1].temp.max}°C`,
       humidity: response.list[1].humidity
