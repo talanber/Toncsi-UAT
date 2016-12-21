@@ -218,7 +218,7 @@ ${irany}
 		 day.setDate(day.getDate()+1);
 	}
 			
-	${context.loc};
+	context.city     = ${context.loc};
 	context.forecast = params;
         res.render('7Day',context);
 //     console.log(body) // Print the json response
