@@ -207,17 +207,20 @@ ${irany}
 //        var retData = JSON.parse(body);
 	var params = [];
 	var day = new Date();
+        context.forecast =
+`
 												 
 	for(q in response.list){
-		{'daynum': day.getMonth()+1+"-"+day.getDate(),
- 		 'temp':JSON.stringify(response.list[q].temp.min),
- 		 'temp':JSON.stringify(response.list[q].temp.max),
-		 'hum':JSON.stringify(response.list[q].humidity),
-		 'des':response.list[q].weather[0].description,
-		 'icon':response.list[q].weather[0].icon};
-													  
-		 day.setDate(day.getDate()+1);
+		 'daynum': ${day.getMonth()+1+"-"+day.getDate()}
+                 'temp':${JSON.stringify(response.list[q].temp.min)}
+ 		 'temp':${JSON.stringify(response.list[q].temp.max)}
+		 'hum':${JSON.stringify(response.list[q].humidity)}
+		 'des': ${response.list[q].weather[0].description}
+		 'icon' ${response.list[q].weather[0].icon}
+ 		 day.setDate(day.getDate()+1);
 	}
+`
+        cb(context);
 			
 //	context.city     = context.loc;
 //	context.forecast = params;
