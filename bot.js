@@ -203,17 +203,17 @@ ${irany}
 
       if (!error && response.statusCode === 200) {
 
-        var retData = JSON.parse(body);
+//        var retData = JSON.parse(body);
 	var params = [];
 	var day = new Date();
 												 
-	for(q in retData.list){
+	for(q in response.list){
 		params.push(
 		{'daynum': day.getMonth()+1+"-"+day.getDate(),
- 		 'temp':JSON.stringify(retData.list[q].temp.day),
-		 'hum':JSON.stringify(retData.list[q].humidity),
-		 'des':retData.list[q].weather[0].description,
-		 'icon':retData.list[q].weather[0].icon});
+ 		 'temp':JSON.stringify(response.list[q].temp.day),
+		 'hum':JSON.stringify(response.list[q].humidity),
+		 'des':response.list[q].weather[0].description,
+		 'icon':response.list[q].weather[0].icon});
 													  
 		 day.setDate(day.getDate()+1);
 	}
