@@ -214,12 +214,12 @@ ${irany}
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-A mai minimum       ${response.main.list.temp_min} °C 
-A mai maximum       ${response.main.list.temp_max} °C 
-Égkép               ${response.weather[0].description}
-Légnyomás           ${response.main.list.pressure} hPa 
-Páratartalom        ${response.main.list.humidity} % 
-A szélsebesség      ${response.main.list.wind.speed} km/óra
+A mai minimum       ${response.day.main.temp_min} °C 
+A mai maximum       ${response.day.main.temp_max} °C 
+Égkép               ${response.day.weather[0].description}
+Légnyomás           ${response.day.main.pressure} hPa 
+Páratartalom        ${response.day.main.humidity} % 
+A szélsebesség      ${response.day.main.wind.speed} km/óra
 `
 
         cb(context);
@@ -230,12 +230,12 @@ day.setDate(day.getDate()+1);
 `
 												 
 		 időpont: ${day.getMonth()+1+"-"+day.getDate()}
-A mai minimum       ${response.main.list.temp_min} °C 
-A mai maximum       ${response.main.list.temp_max} °C 
-Égkép               ${response.weather[0].description}
-Légnyomás           ${response.main.list.pressure} hPa 
-Páratartalom        ${response.main.list.humidity} % 
-A szélsebesség      ${response.main.list.wind.speed} km/óra
+A mai minimum       ${response.day.main..temp_min} °C 
+A mai maximum       ${response.day.main.temp_max} °C 
+Égkép               ${response.day.weather[0].description}
+Légnyomás           ${response.day.main.pressure} hPa 
+Páratartalom        ${response.day.main.humidity} % 
+A szélsebesség      ${response.day.main.wind.speed} km/óra
 `
         cb(context);
 			
