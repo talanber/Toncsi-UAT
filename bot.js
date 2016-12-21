@@ -203,7 +203,7 @@ ${irany}
 
       if (!error && response.statusCode === 200) {
 
-  const forecast = response[1].data;
+ // const forecast = response[1].data;
   let date;
   let forecastWeather = [];
   for (let i = 0; i < 5; i++) {
