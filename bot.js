@@ -171,17 +171,20 @@ if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "
 if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
 if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
 console.log(body) // Print the json response
-        context.forecast =
+
+// Jelenlegi idő itt:        ${context.loc} 
+//Most a hőmérséklet  ${response.body.main.temp} °C 
+//A mai minimum       ${response.body.main.temp_min} °C 
+//A mai maximum       ${response.body.main.temp_max} °C 
+//Égkép               ${response.body.weather[0].description}
+//Légnyomás           ${response.body.main.pressure} hPa 
+//Páratartalom        ${response.body.main.humidity} % 
+//A szélsebesség      ${response.body.wind.speed} km/óra
+	      
+	      
+	      context.forecast =
 `
 ${Date(response.body.dt * 1000)}
-Jelenlegi idő itt:        ${context.loc} 
-Most a hőmérséklet  ${response.body.main.temp} °C 
-A mai minimum       ${response.body.main.temp_min} °C 
-A mai maximum       ${response.body.main.temp_max} °C 
-Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure} hPa 
-Páratartalom        ${response.body.main.humidity} % 
-A szélsebesség      ${response.body.wind.speed} km/óra
 ${irany}
 `
         cb(context);
@@ -213,12 +216,6 @@ ${irany}
 	      context.forecast =
 `
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
-A mai minimum       ${response.body.main.temp_min}°C 
-A mai maximum       ${response.body.main.temp_max}°C 
-Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure}hPa 
-Páratartalom        ${response.body.main.humidity}% 
-A szélsebesség      ${response.body.main.wind.speed} km/óra
 `
 
 //        cb(context);
@@ -229,12 +226,6 @@ day.setDate(day.getDate()+1);
 `
 												 
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
-A mai minimum       ${response.body.main.temp_min} °C 
-A mai maximum       ${response.body.main.temp_max} °C 
-Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure} hPa 
-Páratartalom        ${response.body.main.humidity} % 
-A szélsebesség      ${response.body.main.wind.speed} km/óra
 `
         cb(context);
 			
