@@ -122,7 +122,6 @@ const actions = {
 
   // getCurrent bot executes
   ['getCurrent'](sessionId, context, cb) {
-//  ['getForecast'](sessionId, context, cb) {
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&lang=hu&type=accurate&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
@@ -141,18 +140,15 @@ if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "
 console.log(body) // Print the json response
 
         context.forecast =
-`
-${Date(response.body.dt * 1000)}
-Jelenlegi idő itt:        ${context.loc} 
-Most a hőmérséklet  ${response.body.main.temp} °C 
-A mai minimum       ${response.body.main.temp_min} °C 
-A mai maximum       ${response.body.main.temp_max} °C 
-Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure} hPa 
-Páratartalom        ${response.body.main.humidity} % 
-A szélsebesség      ${response.body.wind.speed} km/óra
-${irany}
-`
+`${Date(response.body.dt * 1000)}
+Jelnlegi hőmérséklet ${response.body.main.temp} °C 
+A mai minimum        ${response.body.main.temp_min} °C 
+A mai maximum        ${response.body.main.temp_max} °C 
+Égkép                ${response.body.weather[0].description}
+Légnyomás            ${response.body.main.pressure} hPa 
+Páratartalom         ${response.body.main.humidity} % 
+A szélsebesség       ${response.body.wind.speed} km/óra
+${irany}`
         cb(context);
 
       }
@@ -164,34 +160,27 @@ ${irany}
   
 // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
-//  ['getCurrent'](sessionId, context, cb) {
+	   request('http://api.openweathermap.org/data/2.5/forecast/daily?q=London&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84', get7Day);
+	   function get7Day(err, response, body)
 	  {
-	   request('http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84', get7Day);
-				
-	   function get7Day(err, response, body){
-					if(!err && response.statusCode < 400){
-						var retData = JSON.parse(body);
-						var params = [];
-						var day = new Date();
-						var q = 0;						 
-						for( q in retData.list){
-						  context.forecast =  context.forecast +
-							`${day.getMonth()+1+"-"+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}
-							`
-								day.setDate(day.getDate()+1);
-							}
-			
-						//context.forecast = ' ${params} ';
-        					cb(context);
-						//res.render('7Day',context1);
-					}
-					else{
-						console.log(err);
-						console.log(response.statusCode);
-					}
-				}
-			}  //)
-		
+		if(!err && response.statusCode < 400){
+			var retData = JSON.parse(body);
+			var params = [];
+			var day = new Date();
+			var q = 0;						 
+			for( q in retData.list){
+				context.forecast =  context.forecast +
+				`${day.getMonth()+1+"-"+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}
+				`
+				day.setDate(day.getDate()+1);
+			}
+        		cb(context);
+		}
+		else{
+			console.log(err);
+			console.log(response.statusCode);
+		}
+	}
   },
 	
  };
