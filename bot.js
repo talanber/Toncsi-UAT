@@ -233,7 +233,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
     })
   },
   ['getCurrent'](sessionId, context, cb) {
-//			app.get('/',function(req,res)
+	app.get('/',function(req,res)
 	  {
 				var context1 = {};
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
@@ -263,8 +263,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						console.log(response.statusCode);
 					}
 				}
-			}
-	
+			})
+		
   },
 	
  };
