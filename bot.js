@@ -212,7 +212,7 @@ ${irany}
 
 	      context.forecast =
 `
-												 
+Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
 A mai minimum       ${response.list.day.body.main.temp_min} °C 
 A mai maximum       ${response.list.day.body.main.temp_max} °C 
 Égkép               ${response.list.day.body.weather[0].description}
@@ -228,6 +228,7 @@ day.setDate(day.getDate()+1);
         context.forecast =
 `
 												 
+Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
 A mai minimum       ${response.list.day.main.temp_min} °C 
 A mai maximum       ${response.list.day.main.temp_max} °C 
 Égkép               ${response.list.day.weather[0].description}
@@ -240,7 +241,7 @@ A szélsebesség      ${response.list.day.main.wind.speed} km/óra
 //	context.city     = context.loc;
 //	context.forecast = params;
 //        res.render('7Day',context);
-          cb(context);
+//          cb(context);
 
       }
     })
