@@ -242,14 +242,14 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						var retData = JSON.parse(body);
 						var params = [];
 						var day = new Date();
-												 
-						for(q in retData.list){
+						// var q = retData;						 
+						for(int q in retData.list){
 							params.push(
 								{'daynum': day.getMonth()+1+"-"+day.getDate(),
 								'temp':JSON.stringify(retData.list[q].temp.day),
+								'temp':JSON.stringify(retData.list[q].temp.day),
 					 			'hum':JSON.stringify(retData.list[q].humidity),
-					 			'des':retData.list[q].weather[0].description,
-					 			'icon':retData.list[q].weather[0].icon});
+					 			'des':retData.list[q].weather[0].description);
 													  
 								day.setDate(day.getDate()+1);
 							}
