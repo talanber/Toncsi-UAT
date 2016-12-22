@@ -213,19 +213,19 @@ ${irany}
 	      context.forecast =
 `
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
-A mai minimum       ${response.body.main.temp_min} °C 
-A mai maximum       ${response.body.main.temp_max} °C 
+A mai minimum       ${response.body.main.temp_min}°C 
+A mai maximum       ${response.body.main.temp_max}°C 
 Égkép               ${response.body.weather[0].description}
-Légnyomás           ${response.body.main.pressure} hPa 
-Páratartalom        ${response.body.main.humidity} % 
+Légnyomás           ${response.body.main.pressure}hPa 
+Páratartalom        ${response.body.main.humidity}% 
 A szélsebesség      ${response.body.main.wind.speed} km/óra
 `
 
-        cb(context);
+//        cb(context);
 
 day.setDate(day.getDate()+1);
 
-        context.forecast =
+        context.forecast = context.forecast +
 `
 												 
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
