@@ -203,8 +203,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
   ['getCurrent'](sessionId, context, cb) {
 //	app.getCurrent('/',function(req,res)
 	  {
-				var context1 = {};
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
+				var context = {};
 				function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
 						var retData = JSON.parse(body);
