@@ -67,38 +67,6 @@ function processDate(date = '') {
 }
 
 
-function processCurrentWeather(results) {
-  const current = results[0].data;
-  const date = processDate();
-  return {
-    date,
-    description: toTitleCase(current.weather[0].description),
-    icon: `/app/images/${current.weather[0].icon}.svg`,
-    temp: `${current.main.temp_min}°C`,
-    humidity: current.main.humidity
-  }
-}
-
-function processForecastWeather(results) {
-  const forecast = results[1].data;
-  let date;
-  let forecastWeather = [];
-  for (let i = 0; i < 5; i++) {
-    date =  processDate(forecast.list[i].dt);
-    forecastWeather.push({
-      date,
-      description: toTitleCase(forecast.list[i].weather[0].description),
-      icon: `/app/images/${forecast.list[i].weather[0].icon}.svg`,
-      minTemp: `${forecast.list[i].temp.min}°C`,
-      maxTemp: `${forecast.list[i].temp.max}°C`,
-      humidity: forecast.list[i].humidity
-    })
-  }
-  return forecastWeather;
-}  
-  
-  
-
 
 
 // Bot actions
@@ -233,7 +201,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
     })
   },
   ['getCurrent'](sessionId, context, cb) {
-	app.gettCurrent('/',function(req,res)
+	app.getCurrent('/',function(req,res)
 	  {
 				var context1 = {};
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
