@@ -161,7 +161,7 @@ ${irany}`
 // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
 	   request({
-		 url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84`, get7Day);
+		 url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
     }, 	   function get7Day(err, response, body)
 	  {
