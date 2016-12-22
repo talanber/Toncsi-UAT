@@ -251,7 +251,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 					 			'hum':JSON.stringify(retData.list[q].humidity),
 					 			'des':retData.list[q].weather[0].description);
 													  
-								day.setDate(day.getDate()+1);
+								day.setDate(day.getDate()+1});
 							}
 			
 						context1.city = retData.city.name+", "+retData.city.country;
