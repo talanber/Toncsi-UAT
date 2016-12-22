@@ -172,19 +172,17 @@ if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "
 if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
 console.log(body) // Print the json response
 
-// Jelenlegi idő itt:        ${context.loc} 
-//Most a hőmérséklet  ${response.body.main.temp} °C 
-//A mai minimum       ${response.body.main.temp_min} °C 
-//A mai maximum       ${response.body.main.temp_max} °C 
-//Égkép               ${response.body.weather[0].description}
-//Légnyomás           ${response.body.main.pressure} hPa 
-//Páratartalom        ${response.body.main.humidity} % 
-//A szélsebesség      ${response.body.wind.speed} km/óra
-	      
-	      
-	      context.forecast =
+        context.forecast =
 `
 ${Date(response.body.dt * 1000)}
+Jelenlegi idő itt:        ${context.loc} 
+Most a hőmérséklet  ${response.body.main.temp} °C 
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
+Égkép               ${response.body.weather[0].description}
+Légnyomás           ${response.body.main.pressure} hPa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.wind.speed} km/óra
 ${irany}
 `
         cb(context);
@@ -200,14 +198,14 @@ ${irany}
 //  ['getForecast'](sessionId, context, cb) {
   ['getCurrent'](sessionId, context, cb) {
     request({
-      url: `http://api.openweathermap.org/data/2.5/forecast?q=${context.loc}&units=metric&type=accurate&lang=hu&cnt=3&appid=07976ea0d7f1371a9e527add86391b84`,
+      url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&type=accurate&lang=hu&cnt=3&appid=07976ea0d7f1371a9e527add86391b84`,
       json: true
     }, function (error, response, body) {
 
       if (!error && response.statusCode === 200) {
      console.log(body) // Print the json response
 
-//        var retData = JSON.parse(body);
+        var retData = JSON.parse(body);
 	var params = [];
 	var day = new Date();
 
@@ -215,7 +213,7 @@ ${irany}
 
 	      context.forecast =
 `
-${day.getMonth()+1+"-"+day.getDate()} :Max:${response.body.main.temp_max}°C												 
+${day.getMonth()+1+"-"+day.getDate()} :Max: ${response.body.main.temp_max}°C												 
 `
 
 //        cb(context);
