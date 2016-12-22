@@ -233,7 +233,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
     })
   },
   ['getCurrent'](sessionId, context, cb) {
-			app.get('/',function(req,res){
+//			app.get('/',function(req,res)
+	  {
 				var context = {};
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=imperial&cnt=7', get7Day);
 				function get7Day(err, response, body){
@@ -265,6 +266,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 			});
 	
   },
+	
  };
 
 
