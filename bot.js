@@ -215,7 +215,7 @@ ${irany}
 
 	      context.forecast =
 `
-Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
+${day.getMonth()+1+"-"+day.getDate()} :Max:${response.body.main.temp_max}°C												 
 `
 
 //        cb(context);
