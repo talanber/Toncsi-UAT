@@ -213,12 +213,12 @@ ${irany}
 	      context.forecast =
 `
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
-A mai minimum       ${response.list.day.body.main.temp_min} °C 
-A mai maximum       ${response.list.day.body.main.temp_max} °C 
-Égkép               ${response.list.day.body.weather[0].description}
-Légnyomás           ${response.list.day.body.main.pressure} hPa 
-Páratartalom        ${response.list.day.body.main.humidity} % 
-A szélsebesség      ${response.list.day.body.main.wind.speed} km/óra
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
+Égkép               ${response.body.weather[0].description}
+Légnyomás           ${response.body.main.pressure} hPa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.main.wind.speed} km/óra
 `
 
         cb(context);
@@ -229,12 +229,12 @@ day.setDate(day.getDate()+1);
 `
 												 
 Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
-A mai minimum       ${response.list.day.main.temp_min} °C 
-A mai maximum       ${response.list.day.main.temp_max} °C 
-Égkép               ${response.list.day.weather[0].description}
-Légnyomás           ${response.list.day.main.pressure} hPa 
-Páratartalom        ${response.list.day.main.humidity} % 
-A szélsebesség      ${response.list.day.main.wind.speed} km/óra
+A mai minimum       ${response.body.main.temp_min} °C 
+A mai maximum       ${response.body.main.temp_max} °C 
+Égkép               ${response.body.weather[0].description}
+Légnyomás           ${response.body.main.pressure} hPa 
+Páratartalom        ${response.body.main.humidity} % 
+A szélsebesség      ${response.body.main.wind.speed} km/óra
 `
         cb(context);
 			
