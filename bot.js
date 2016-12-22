@@ -242,7 +242,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						var retData = JSON.parse(body);
 						var params = [];
 						var day = new Date();
-						var q = int;						 
+						var q = 0;						 
 						for( q in retData.list){
 							params.push(
 								{'daynum': day.getMonth()+1+"-"+day.getDate(),
