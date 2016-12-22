@@ -160,8 +160,10 @@ ${irany}`
   
 // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
-	   request('http://api.openweathermap.org/data/2.5/forecast/daily?q=London&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84', get7Day);
-	   function get7Day(err, response, body)
+	   request({
+		 url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84`, get7Day);
+      json: true
+    }, 	   function get7Day(err, response, body)
 	  {
 		if(!err && response.statusCode < 400){
 			var retData = JSON.parse(body);
@@ -171,7 +173,7 @@ ${irany}`
 			for( q in retData.list){
 				context.forecast =  context.forecast +
 				`
-${day.getMonth()+1+"-"+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}`
+${day.getMonth()+1+"."+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}`
 				day.setDate(day.getDate()+1);
 			}
         		cb(context);
