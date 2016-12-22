@@ -214,8 +214,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						for( q in retData.list){
 							params.push(
 								{'daynum': day.getMonth()+1+"-"+day.getDate(),
-								'min':JSON.stringify(retData.list[q].min),
-								'Max':JSON.stringify(retData.list[q].max),
+								'min':JSON.stringify(retData.list[q].temp.min),
+								'Max':JSON.stringify(retData.list[q].temp.max),
 					 			'hum':JSON.stringify(retData.list[q].humidity),
 					 			'des':retData.list[q].weather[0].description});
 													  
