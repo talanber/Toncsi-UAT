@@ -121,8 +121,8 @@ const actions = {
   },
 
   // getCurrent bot executes
-//  ['getCurrent'](sessionId, context, cb) {
-  ['getForecast'](sessionId, context, cb) {
+  ['getCurrent'](sessionId, context, cb) {
+//  ['getForecast'](sessionId, context, cb) {
     request({
       url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&lang=hu&type=accurate&APPID=07976ea0d7f1371a9e527add86391b84`,
       json: true
@@ -163,10 +163,10 @@ ${irany}
   
   
 // getForecast bot executes
-//  ['getForecast'](sessionId, context, cb) {
-  ['getCurrent'](sessionId, context, cb) {
+  ['getForecast'](sessionId, context, cb) {
+//  ['getCurrent'](sessionId, context, cb) {
 	  {
-	   request('http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&APPID=07976ea0d7f1371a9e527add86391b84&units=metric&lang=hu&cnt=7', get7Day);
+	   request('http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=7&APPID=07976ea0d7f1371a9e527add86391b84', get7Day);
 				
 	   function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
