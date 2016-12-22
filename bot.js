@@ -263,7 +263,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						console.log(response.statusCode);
 					}
 				}
-			});
+			}
 	
   },
 	
