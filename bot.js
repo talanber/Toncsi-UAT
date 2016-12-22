@@ -196,11 +196,11 @@ ${irany}
   
 // getForecast bot executes
 //  ['getForecast'](sessionId, context, cb) {
-  ['getCurrent'](sessionId, context, cb) {
+  ['getCurrent_old'](sessionId, context, cb) {
 //          http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7
 //  openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7
 	  request({
-      url: `http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7`,
+      url: `http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=metric&lang=hu&cnt=7`,
       json: true
     }, function (error, response, body) {
 
@@ -231,6 +231,39 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 
       }
     })
+  },
+  ['getCurrent'](sessionId, context, cb) {
+			app.get('/',function(req,res){
+				var context = {};
+				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=imperial&cnt=7', get7Day);
+				function get7Day(err, response, body){
+					if(!err && response.statusCode < 400){
+						var retData = JSON.parse(body);
+						var params = [];
+						var day = new Date();
+												 
+						for(q in retData.list){
+							params.push(
+								{'daynum': day.getMonth()+1+"-"+day.getDate(),
+								'temp':JSON.stringify(retData.list[q].temp.day),
+					 			'hum':JSON.stringify(retData.list[q].humidity),
+					 			'des':retData.list[q].weather[0].description,
+					 			'icon':retData.list[q].weather[0].icon});
+													  
+								day.setDate(day.getDate()+1);
+							}
+			
+						context.city = retData.city.name+", "+retData.city.country;
+						context.forecast = params;
+						res.render('7Day',context);
+					}
+					else{
+						console.log(err);
+						console.log(response.statusCode);
+					}
+				}
+			});
+	
   },
  };
 
