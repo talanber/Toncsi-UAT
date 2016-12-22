@@ -214,13 +214,13 @@ ${irany}
 
 	      context.forecast =
 `
-${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.main.min}°C Max: ${response.body.main.max}°C  ${response.body.weather.descripton}									 
+${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[0].min}°C Max: ${response.body.list[0].max}°C  ${response.body.weather[0].descripton}									 
 `
 day.setDate(day.getDate()+1);
 
         context.forecast = context.forecast +
 `											 
-${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.main.min}°C Max: ${response.body.main.max}°C  ${response.body.weather.descripton}									 
+${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: ${response.body.list[1].max}°C  ${response.body.weather[1].descripton}									 
 `
         cb(context);
 			
