@@ -249,7 +249,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 								'temp':JSON.stringify(retData.list[q].temp.day),
 								'temp':JSON.stringify(retData.list[q].temp.day),
 					 			'hum':JSON.stringify(retData.list[q].humidity),
-					 			'des':retData.list[q].weather[0].description);
+					 			'des':retData.list[q].weather[0].description;
 													  
 								day.setDate(day.getDate()+1});
 							}
