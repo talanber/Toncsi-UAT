@@ -205,7 +205,6 @@ ${irany}
       if (!error && response.statusCode === 200) {
      console.log(body) // Print the json response
 
-        var retData = JSON.parse(body);
 	var params = [];
 	var day = new Date();
 
@@ -213,17 +212,13 @@ ${irany}
 
 	      context.forecast =
 `
-${day.getMonth()+1+"-"+day.getDate()} :Max: ${response.body.main.temp_max}°C												 
+${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.main.min}°C Max: ${response.body.main.max}°C  ${response.body.weather.descripton}									 
 `
-
-//        cb(context);
-
 day.setDate(day.getDate()+1);
 
         context.forecast = context.forecast +
-`
-												 
-Dátum:              ${day.getMonth()+1+"-"+day.getDate()}												 
+`											 
+${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.main.min}°C Max: ${response.body.main.max}°C  ${response.body.weather.descripton}									 
 `
         cb(context);
 			
