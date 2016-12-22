@@ -164,48 +164,11 @@ ${irany}
   
 // getForecast bot executes
 //  ['getForecast'](sessionId, context, cb) {
-  ['getCurrent_old'](sessionId, context, cb) {
-//          http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7
-//  openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7
-	  request({
-      url: `http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=metric&lang=hu&cnt=7`,
-      json: true
-    }, function (error, response, body) {
-
-      if (!error && response.statusCode === 200) {
-     console.log(body) // Print the json response
-
-	var params = [];
-	var day = new Date();
-
-	day.setDate(day.getDate());
-
-	      context.forecast =
-`
-${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[0].min}°C Max: ${response.body.list[0].max}°C  ${response.body.weather[0].descripton}									 
-`
-day.setDate(day.getDate()+1);
-
-        context.forecast = context.forecast +
-`											 
-${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: ${response.body.list[1].max}°C  ${response.body.weather[1].descripton}									 
-`
-        cb(context);
-			
-//	context.city     = context.loc;
-//	context.forecast = params;
-//        res.render('7Day',context);
-//          cb(context);
-
-      }
-    })
-  },
   ['getCurrent'](sessionId, context, cb) {
-//	app.getCurrent('/',function(req,res)
 	  {
-				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=metric&lang=hu&cnt=7', get7Day);
+	   request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q={context.loc}&units=metric&lang=hu&cnt=7', get7Day);
 				
-				function get7Day(err, response, body){
+	   function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
 						var retData = JSON.parse(body);
 						var params = [];
