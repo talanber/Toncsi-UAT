@@ -138,6 +138,7 @@ if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "
 if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
 if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
 console.log(body) // Print the json response
+        context.forecast = '';
 
         context.forecast =
 `${Date(response.body.dt * 1000)}
@@ -169,6 +170,7 @@ ${irany}`
 			var params = [];
 			var day = new Date();
 			var q = 0;						 
+   		        context.forecast = '';
 			for( q in retData.list){
 				context.forecast =  context.forecast +
 				`
