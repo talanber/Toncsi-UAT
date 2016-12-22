@@ -197,8 +197,9 @@ ${irany}
 // getForecast bot executes
 //  ['getForecast'](sessionId, context, cb) {
   ['getCurrent'](sessionId, context, cb) {
-    request({
-      url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&type=accurate&lang=hu&cnt=3&appid=07976ea0d7f1371a9e527add86391b84`,
+//          http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7
+	  request({
+      url: `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&cnt=7&lang=hu&cnt=3&appid=07976ea0d7f1371a9e527add86391b84`,
       json: true
     }, function (error, response, body) {
 
