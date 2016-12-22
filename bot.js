@@ -182,7 +182,7 @@ ${day.getMonth()+1+"."+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.
 			console.log(err);
 			console.log(response.statusCode);
 		}
-	}
+	})
   },
 	
  };
