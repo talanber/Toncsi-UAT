@@ -222,7 +222,6 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 								day.setDate(day.getDate()+1);
 							}
 			
-						context.city = retData.city.name+", "+retData.city.country;
 						context.forecast = params;
         					cb(context);
 						//res.render('7Day',context1);
