@@ -150,6 +150,7 @@ Páratartalom         ${response.body.main.humidity} %
 A szélsebesség       ${response.body.wind.speed} km/óra
 ${irany}`
         cb(context);
+	context = {};
 
       }
     })
@@ -175,6 +176,7 @@ ${day.getMonth()+1+"."+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.
 				day.setDate(day.getDate()+1);
 			}
         		cb(context);
+			context = {};
 		}
 		else{
 			console.log(err);
