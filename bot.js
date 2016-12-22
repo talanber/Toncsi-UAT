@@ -233,7 +233,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
     })
   },
   ['getCurrent'](sessionId, context, cb) {
-	app.get('/',function(req,res)
+	app.gettCurrent('/',function(req,res)
 	  {
 				var context1 = {};
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
@@ -246,8 +246,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						for( q in retData.list){
 							params.push(
 								{'daynum': day.getMonth()+1+"-"+day.getDate(),
-								'temp':JSON.stringify(retData.list[q].temp.day),
-								'temp':JSON.stringify(retData.list[q].temp.day),
+								'min':JSON.stringify(retData.list[q].min.day),
+								'Max':JSON.stringify(retData.list[q].max.day),
 					 			'hum':JSON.stringify(retData.list[q].humidity),
 					 			'des':retData.list[q].weather[0].description});
 													  
