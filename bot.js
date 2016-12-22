@@ -235,8 +235,8 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
   ['getCurrent'](sessionId, context, cb) {
 //			app.get('/',function(req,res)
 	  {
-				//var context = {};
-				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=imperial&cnt=7', get7Day);
+				var context1 = {};
+				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
 				function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
 						var retData = JSON.parse(body);
@@ -254,9 +254,9 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 								day.setDate(day.getDate()+1);
 							}
 			
-						context.city = retData.city.name+", "+retData.city.country;
-						context.forecast = params;
-						res.render('7Day',context);
+						context1.city = retData.city.name+", "+retData.city.country;
+						context1.forecast = params;
+						res.render('7Day',context1);
 					}
 					else{
 						console.log(err);
