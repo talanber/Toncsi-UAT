@@ -204,7 +204,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 //	app.getCurrent('/',function(req,res)
 	  {
 				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=imperial&cnt=7', get7Day);
-				var context = {};
+				
 				function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
 						var retData = JSON.parse(body);
@@ -212,17 +212,21 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						var day = new Date();
 						var q = 0;						 
 						for( q in retData.list){
-							params.push(
-								{'daynum': day.getMonth()+1+"-"+day.getDate(),
-								'min':JSON.stringify(retData.list[q].temp.min),
-								'Max':JSON.stringify(retData.list[q].temp.max),
-					 			'hum':JSON.stringify(retData.list[q].humidity),
-					 			'des':retData.list[q].weather[0].description});
+						  context.forecast =  context.forecast +
+							`
+								${day.getMonth()+1+"-"+day.getDate()} Min: ${JSON.stringify(retData.list[q].temp.min)} ${retData.list[q].weather[0].description}
+							`
+							//params.push(
+							//	{'daynum': day.getMonth()+1+"-"+day.getDate(),
+							//	'min':JSON.stringify(retData.list[q].temp.min),
+							//	'Max':JSON.stringify(retData.list[q].temp.max),
+					 		//	'hum':JSON.stringify(retData.list[q].humidity),
+					 		//	'des':retData.list[q].weather[0].description});
 													  
 								day.setDate(day.getDate()+1);
 							}
 			
-						context.forecast = ' ${params} ';
+						//context.forecast = ' ${params} ';
         					cb(context);
 						//res.render('7Day',context1);
 					}
