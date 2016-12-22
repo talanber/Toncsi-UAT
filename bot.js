@@ -203,7 +203,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
   ['getCurrent'](sessionId, context, cb) {
 //	app.getCurrent('/',function(req,res)
 	  {
-				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=London&units=metric&lang=hu&cnt=7', get7Day);
+				request('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=07976ea0d7f1371a9e527add86391b84&q=${context.loc}&units=metric&lang=hu&cnt=7', get7Day);
 				
 				function get7Day(err, response, body){
 					if(!err && response.statusCode < 400){
@@ -213,8 +213,7 @@ ${day.getMonth()+1+"-"+day.getDate()}:Min: ${response.body.list[1].min}°C Max: 
 						var q = 0;						 
 						for( q in retData.list){
 						  context.forecast =  context.forecast +
-							`
-								${day.getMonth()+1+"-"+day.getDate()} Min: ${JSON.stringify(retData.list[q].temp.min)}  Max: ${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}
+							`${day.getMonth()+1+"-"+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}
 							`
 								day.setDate(day.getDate()+1);
 							}
