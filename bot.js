@@ -211,6 +211,11 @@ console.log(body) // Print the json response
 			var q = 0;						 
 		
 		if(!err && response.statusCode < 400){
+      FB.fbMessage(
+        sender,
+        'minden oké'
+      );
+
 			context.forecast = '';
  
 			for( qq in retData.list)
@@ -236,6 +241,10 @@ console.log(body) // Print the json response
 			context = '';
 		}
 		else{
+      FB.fbMessage(
+        sender,
+        'error van: '+err
+      );
 			console.log(err);
 			console.log(response.statusCode);
 		}

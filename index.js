@@ -136,11 +136,6 @@ app.post('/webhook', (req, res) => {
 
             // Updating the user's current session state
             sessions[sessionId].context = context;
-
-            FB.fbMessage(
-        sender,
-        'nincs error'
-      );
           }
         }
       );
