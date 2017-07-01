@@ -208,13 +208,14 @@ console.log(body) // Print the json response
 			var params = [];
 			var day = new Date();
 			var qq = 0;						 
-			var q = 0;						 
-		
+			var q = 0;
+
+      {context.forecast =  
+        `Hola`
+        }
+      cb(context);
+		/*
 		if(!err && response.statusCode < 400){
-      FB.fbMessage(
-        sender,
-        'minden oké'
-      );
 
 			context.forecast = '';
  
@@ -241,13 +242,10 @@ console.log(body) // Print the json response
 			context = '';
 		}
 		else{
-      FB.fbMessage(
-        sender,
-        'error van: '+err
-      );
 			console.log(err);
 			console.log(response.statusCode);
 		}
+    */
 	}
   },
 	
