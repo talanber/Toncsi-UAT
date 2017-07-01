@@ -106,11 +106,11 @@ app.post('/webhook', (req, res) => {
 
       // Let's forward the message to the Wit.ai Bot Engine
       // This will run all actions until our bot has nothing left to do
-      FB.fbMessage(
+      /* FB.fbMessage(
         sender,
         'Csaa'
-      );
-      /*
+      ); */
+      
       wit.runActions(
         sessionId, // the user's current session
         msg, // the user's message 
@@ -118,6 +118,10 @@ app.post('/webhook', (req, res) => {
         (error, context) => {
           if (error) {
             console.log('Oops! Got an error from Wit:', error);
+            FB.fbMessage(
+        sender,
+        'error van: '+error
+      );
           } else {
             // Our bot did everything it has to do.
             // Now it's waiting for further messages to proceed.
@@ -132,10 +136,15 @@ app.post('/webhook', (req, res) => {
 
             // Updating the user's current session state
             sessions[sessionId].context = context;
+
+            FB.fbMessage(
+        sender,
+        'nincs error'
+      );
           }
         }
       );
-      */
+      
     }
   }
   res.sendStatus(200);
