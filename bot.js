@@ -6,6 +6,8 @@ var request = require("request")
 const APP_ID = '07976ea0d7f1371a9e527add86391b84';
 var irany = "";
 var orsz = "";
+var honap = "";
+var q = 0;						 
 //var date = new Date(UNIX_Timestamp * 1000);
 
 // Weather Example
@@ -120,6 +122,41 @@ const actions = {
     console.log(error.message);
   },
 
+	
+  // getCurrent bot executes
+  ['getDetails'](sessionId, context, cb) {
+    request({
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${context.loc}&units=metric&lang=hu&type=accurate&APPID=07976ea0d7f1371a9e527add86391b84`,
+      json: true
+    }, function (error, response, body) {
+
+      if (!error && response.statusCode === 200) {
+
+if ( response.body.wind.deg > 338 &&  response.body.wind.deg  < 23)  { irany = "A szél iránya Északi"; }
+if ( response.body.wind.deg > 22  &&  response.body.wind.deg  < 67)  { irany = "A szél iránya Északkeleti";}
+if ( response.body.wind.deg > 67  &&  response.body.wind.deg  < 102) { irany = "A szél iránya Keleti";}
+if ( response.body.wind.deg > 102 &&  response.body.wind.deg  < 147) { irany = "A szél iránya Délkeleti";}
+if ( response.body.wind.deg > 147 &&  response.body.wind.deg  < 193) { irany = "A szél iránya Déli";}
+if ( response.body.wind.deg > 193 &&  response.body.wind.deg  < 238) { irany = "A szél iránya Délnyugati";}
+if ( response.body.wind.deg > 238 &&  response.body.wind.deg  < 283) { irany = "A szél iránya Nyugati";}
+if ( response.body.wind.deg > 283 &&  response.body.wind.deg  < 339) { irany = "A szél iránya Északnyugati";}
+context.forecast = '';
+console.log(body) // Print the json response
+
+        context.forecast =
+` ${response.body.weather[0].description} ${response.body.main.temp} °C 
+ Jelnlegi hőmérséklet ${response.body.main.temp} °C 
+ Égkép                ${response.body.weather[0].description}
+ Légnyomás            ${response.body.main.pressure} hPa 
+ Páratartalom         ${response.body.main.humidity} % 
+ A szélsebesség       ${response.body.wind.speed} km/óra
+ ${irany}`
+        cb(context);
+	context = '';
+
+      }
+    })
+  },
   // getCurrent bot executes
   ['getCurrent'](sessionId, context, cb) {
     request({
@@ -141,15 +178,17 @@ context.forecast = '';
 console.log(body) // Print the json response
 
         context.forecast =
-`${Date(response.body.dt * 1000)}
-Jelnlegi hőmérséklet ${response.body.main.temp} °C 
-A mai minimum        ${response.body.main.temp_min} °C 
-A mai maximum        ${response.body.main.temp_max} °C 
-Égkép                ${response.body.weather[0].description}
-Légnyomás            ${response.body.main.pressure} hPa 
-Páratartalom         ${response.body.main.humidity} % 
-A szélsebesség       ${response.body.wind.speed} km/óra
-${irany}`
+` ${response.body.weather[0].description} ${response.body.main.temp} °C `
+	
+// // `${Date(response.body.dt * 1000)}
+// Jelnlegi hőmérséklet ${response.body.main.temp} °C 
+// A mai minimum        ${response.body.main.temp_min} °C 
+// A mai maximum        ${response.body.main.temp_max} °C 
+// Égkép                ${response.body.weather[0].description}
+// Légnyomás            ${response.body.main.pressure} hPa 
+// Páratartalom         ${response.body.main.humidity} % 
+// A szélsebesség       ${response.body.wind.speed} km/óra
+// ${irany}`
         cb(context);
 	context = '';
 
@@ -163,19 +202,35 @@ ${irany}`
 // getForecast bot executes
   ['getForecast'](sessionId, context, cb) {
 	   request(
-		 `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=5&APPID=07976ea0d7f1371a9e527add86391b84`, get7Day); 	   function get7Day(err, response, body)
+		 `http://api.openweathermap.org/data/2.5/forecast/daily?q=${context.loc}&units=metric&lang=hu&cnt=15&APPID=07976ea0d7f1371a9e527add86391b84`, get7Day); 	   function get7Day(err, response, body)
 	  {
-		if(!err && response.statusCode < 400){
 			var retData = JSON.parse(body);
 			var params = [];
 			var day = new Date();
+			var qq = 0;						 
 			var q = 0;						 
+		
+		if(!err && response.statusCode < 400){
 			context.forecast = '';
- 			for( q in retData.list){
-				context.forecast =  context.forecast +
-				`
-${day.getMonth()+1+"."+day.getDate()} Min:${JSON.stringify(retData.list[q].temp.min)} Max:${JSON.stringify(retData.list[q].temp.max)} ${retData.list[q].weather[0].description}`
-				day.setDate(day.getDate()+1);
+ 
+			for( qq in retData.list)
+			{
+				{
+					
+				}
+				if (qq < '0 0')
+				{context.forecast =  context.forecast +
+				`Ma: Min:${JSON.stringify(retData.list[qq].temp.min)} Max:${JSON.stringify(retData.list[qq].temp.max)} 
+        ${retData.list[qq].weather[0].description}
+`
+				}
+				else
+				{context.forecast =  context.forecast +
+				`${qq} ${day.getMonth()} ${day.getDate()}: Min:${JSON.stringify(retData.list[qq].temp.min)} Max:${JSON.stringify(retData.list[qq].temp.max)} 
+	${retData.list[qq].weather[0].description}
+`
+				}
+				day.setDate(day.getDate()+1);	
 			}
         		cb(context);
 			context = '';
